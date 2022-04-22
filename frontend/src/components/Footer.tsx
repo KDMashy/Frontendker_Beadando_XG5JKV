@@ -10,10 +10,10 @@ function Footer() {
   return (
     <div className="footer">
       <div className="socialMedia">
-        <InstagramIcon /> 
-        <TwitterIcon /> 
-        <FacebookIcon /> 
-        <LinkedInIcon />
+        <a href="https://www.instagram.com/"><InstagramIcon /> </a>
+        <a href="https://twitter.com/"><TwitterIcon /> </a>
+        <a href="https://www.facebook.com/"><FacebookIcon /> </a>
+        <a href="https://www.linkedin.com/"><LinkedInIcon /> </a>
       </div>
       <img id="Foxy" src={Fox} alt='fox' />
       <p> &copy; 2021 kdmashyprojects.com</p>
