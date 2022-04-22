@@ -1,0 +1,27 @@
+.homesite {
+    background: linear-gradient(90deg, rgba(195,134,0,1) 75%, rgba(255,255,255,1) 100%);
+}
+
+.homesite .maincontent {
+    z-index: 0;
+    left: 0;
+    margin-left: 3%;
+    width: 60%;
+    padding: 50px;
+    background-color: rgba(195, 133, 0, 0.808);
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    min-height: 500px;
+}
+
+@media only screen and (max-width: 900px) {
+    .homesite {
+        background: linear-gradient(90deg, rgba(195,134,0,1) 80%, rgba(255,255,255,1) 100%);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .homesite {
+        background: linear-gradient(90deg, rgba(195,134,0,1) 90%, rgba(255,255,255,1) 100%);
+    }
+}
