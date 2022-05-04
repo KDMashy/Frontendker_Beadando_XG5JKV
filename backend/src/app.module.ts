@@ -5,11 +5,13 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './modules/auth/auth.module';
 import { typeOrmConfig } from './modules/config/db.config';
+import { ProjectModule } from './modules/projects/project.module';
 import { UserModule } from './modules/user/user.module';
 
 @Module({
   imports: [
     UserModule,
+    ProjectModule,
     AuthModule,
     TypeOrmModule.forRoot(typeOrmConfig),
     PassportModule.register({
