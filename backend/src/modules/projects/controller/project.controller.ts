@@ -9,8 +9,14 @@ export class ProjectController {
         private readonly projectService: ProjectService,
     ) {}
 
-    @UseGuards(AuthenticatedGuard)
     @Get('projects')
+    @HttpCode(200)
+    GetPublicProjects(){
+        return this.projectService.getPublicList();
+    }
+
+    @UseGuards(AuthenticatedGuard)
+    @Get('myprojects')
     @HttpCode(200)
     GetAllProjects(@Req() req){
         return this.projectService.getProjects(req.user);

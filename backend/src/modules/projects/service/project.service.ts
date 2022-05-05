@@ -13,6 +13,12 @@ export class ProjectService {
         private projectModel: Repository<Project>
     ) {}
 
+    async getPublicList(){
+        return await this.projectModel.find({
+            relations: ['userid']
+        })
+    }
+
     async getProjects(user: User){
         return await this.projectModel.find({
             where: { userid: user.id }

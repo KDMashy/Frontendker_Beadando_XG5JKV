@@ -11,6 +11,12 @@ export class UserController {
         private readonly userService: UserService,
     ) {}
 
+    @Get('users')
+    @HttpCode(200)
+    GetPublicUserList(){
+        return this.userService.GetUsers();
+    }
+
     @Post('register')
     @HttpCode(201)
     CreateUser(@Body() user: CreateUserDto){
@@ -27,9 +33,7 @@ export class UserController {
     @UseGuards(AuthenticatedGuard)
     @Delete('delete')
     @HttpCode(202)
-    DeleteUserById(
-        @Req() req,
-    ) {
+    DeleteUserById(@Req() req) {
         return this.userService.DeleteUser(req.user.id);
     }
 }

@@ -20,6 +20,7 @@ const Project = ({ project }: Props) => {
                 <span>{project.projectOwner}</span>
                 <span>{project.projectLanguage}</span>
                 <a href={project.projectUrl}> {project.projectName} GitHub</a>
+                <button name=""> Delete </button>
             </div>
         </div>
     )

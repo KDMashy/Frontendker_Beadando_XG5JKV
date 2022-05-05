@@ -37,12 +37,16 @@ function Navbar() {
           <Link to="/" onClick={toggleNavbar}> Home </Link>
           <Link to="/projects" onClick={toggleNavbar}> Projects </Link>
           <Link to="/about" onClick={toggleNavbar}> About </Link>
+          <Link to="/register" onClick={toggleNavbar}> Login </Link>
+          <Link to="/profile" onClick={toggleNavbar}> Profile </Link>
         </div>
       </div>
       <div className='rightside'>
         <Link to="/"> Home </Link>
         <Link to="/projects"> Projects </Link>
         <Link to="/about"> About </Link>
+        <Link to="/register"> Login </Link>
+        <Link to="/profile"> Profile </Link>
         <button onClick={toggleNavbar}>
             <ReorderIcon />
         </button>
