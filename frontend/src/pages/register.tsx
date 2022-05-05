@@ -2,7 +2,13 @@ import React from 'react'
 
 function register() {
   return (
-    <div>register</div>
+    <div className='site'>
+      <div className='maincontent'>
+        <div className='defaultContainer'>
+          <h1>REGISTER/LOGIN</h1>
+        </div>
+      </div>
+    </div>
   )
 }
 

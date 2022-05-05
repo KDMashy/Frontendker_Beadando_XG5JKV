@@ -1,6 +1,5 @@
 import React, { ChangeEvent, useState } from 'react';
 import Project, { IProject } from '../components/Project';
-import Fox from '../res/fox.png';
 import '../styles/Main.css';
 
 function Projects() {

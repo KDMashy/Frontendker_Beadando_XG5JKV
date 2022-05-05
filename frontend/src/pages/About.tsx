@@ -1,5 +1,4 @@
 import React from 'react';
-import Fox from '../res/fox.png';
 import '../styles/Main.css';
 
 function About() {
