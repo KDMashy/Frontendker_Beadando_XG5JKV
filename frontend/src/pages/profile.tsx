@@ -21,6 +21,9 @@ function Profile() {
       <div className='maincontent'>
         <div className='defaultContainer'>
           <h1>Profile</h1>
+          <p>
+            {users[0].email}
+          </p>
         </div>
       </div>
     </div>
