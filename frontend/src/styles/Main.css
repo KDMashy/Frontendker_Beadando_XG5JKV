@@ -47,8 +47,13 @@
 
 .defaultContainer a:hover,
 .project .content a:hover,
-#projectCreate:hover {
+.projectCreate:hover {
     background-color: rgba(114, 78, 0, 0.815);
+    border-radius: 100px;
+}
+
+.projectDelete:hover {
+    background-color: rgba(114, 8, 0, 0.815);
     border-radius: 100px;
 }
 
@@ -62,7 +67,7 @@
     padding: 10px 0;
 }
 
-#projectCreate {
+.projectCreate {
     padding: 15px 50px;
     font-size: 125%;
     font-weight: bold;
@@ -73,6 +78,21 @@
     color: #fff;
     text-shadow: 2px 2px #000;
     transition: background 0.3s, border-radius 0.3s;
+}
+
+.projectDelete {
+    padding: 10px 25px;
+    font-size: 125%;
+    font-weight: bold;
+    transition: padding 0.3s, font-size 0.3s;
+    border-radius: 15px;
+    background-color: rgba(228, 46, 0, 0.658);
+    color: #fff;
+    text-shadow: 2px 2px #000;
+    transition: background 0.3s, border-radius 0.3s;
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 40px;
 }
 
 .projectsContainer {
@@ -139,6 +159,13 @@
     .defaultContainer a {
         font-size: 100%;
     }
+
+    .projectDelete {
+        padding: 15px 40px;
+        font-size: 100%;
+        font-weight: bold;
+        margin-top: 20px;
+    }
 }
 
 @media only screen and (max-width: 600px) {
@@ -160,9 +187,16 @@
         font-size: 100%;
     }
 
-    #projectCreate {
+    .projectCreate {
         padding: 15px 40px;
         font-size: 100%;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    .projectDelete {
+        padding: 15px 40px;
+        font-size: 75%;
         font-weight: bold;
         margin-top: 20px;
     }

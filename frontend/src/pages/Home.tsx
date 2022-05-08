@@ -11,7 +11,6 @@ function Home() {
           <p>
             I made the site to create projects im working on right now, and list them.
           </p>
-          <Link to="/projects"> Projects </Link>
           <p>
             Hope you find something that interests you.
           </p>

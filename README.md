@@ -4,6 +4,14 @@
 # Installs (REACT JS)
 npm install axios
 
+npm install express-session
+
+npm install universal-cookie
+
+npm i cors cookie-parser
+
+npm install -D @types/express-session
+
 npm install @mui/material @mui/styled-engine-sc styled-components
 
 npm install @mui/material @emotion/react @emotion/styled

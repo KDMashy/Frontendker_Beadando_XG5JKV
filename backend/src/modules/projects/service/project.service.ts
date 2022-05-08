@@ -65,7 +65,7 @@ export class ProjectService {
         }
     }
 
-    async deleteProject(id: number, user: User){
+    async deleteProject(name: string, user: User){
         try{
             const findProj = await this.projectModel.find({
                 where: { userid: user.id },
@@ -75,7 +75,7 @@ export class ProjectService {
                     .createQueryBuilder()
                     .delete()
                     .from(Project)
-                    .where("id = :id", { id: id})
+                    .where("projname = :projname", { projname: name})
                     .execute();
                 return HttpStatus.OK;
             }

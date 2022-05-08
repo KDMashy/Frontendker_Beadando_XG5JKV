@@ -1,4 +1,6 @@
-import React, { ChangeEvent, useState } from 'react';
+import axios from 'axios';
+import React, { ChangeEvent, useCallback, useEffect, useState } from 'react';
+import Cookies from 'universal-cookie';
 import Project, { IProject } from '../components/Project';
 import '../styles/Main.css';
 
@@ -8,6 +10,11 @@ function Projects() {
   const [user, setUser] = useState<string>("");
   const [language, setLanguage] = useState<string>("");
   const [githuburl, setGithuburl] = useState<string>("");
+  const [logged, setLogged] = useState(false);
+
+  const cookies = new Cookies();
+  var token = cookies.get('token');
+  var isLoggedIn = cookies.get('loggedin');
 
   const handleChange = (evt: ChangeEvent<HTMLInputElement>): void => {
     if (evt.target.name === "projectName"){
@@ -21,18 +28,54 @@ function Projects() {
     }
   };
 
-  const addProject = (): void => {
-    const newProject = {
-      projectName: name,
-      projectOwner: user,
-      projectLanguage: language,
-      projectUrl: githuburl
-    };
-    setProjectList([...projectList, newProject]);
-    setName("");
-    setUser("");
-    setLanguage("");
-    setGithuburl("");
+  var getList: IProject[] = [];
+  const getAllProjects = async () => {
+    const resp = await axios.get('http://localhost:3069/project/myprojects', {
+      headers: {"Authorization": `Bearer ${token}`}
+    })
+    var opened: string = JSON.stringify(resp.data).replace('[','').replace(']','');
+    if (opened.length > 0) {
+      var listed: string[] = opened.split('},{');
+      listed.forEach(element => {
+        if (element.startsWith('{') && element.endsWith('}')){
+          getList.push(JSON.parse(`${element}`));
+        } else {
+          if(element.startsWith('{')){
+            getList.push(JSON.parse(`${element}}`));
+          } else {
+            getList.push(JSON.parse(`{${element}`));
+          }
+        }
+      });
+      var listedLength = listed.length;
+      if (listedLength != getList.length){
+        for(var i = 0; i < (getList.length/2); i++){
+          getList.pop();
+        }
+      }
+      setProjectList(getList);
+    }
+  }
+
+  useEffect(() => {
+    if (isLoggedIn === 'true'){
+      setLogged(true);
+    } else {
+      setLogged(false);
+    }
+    getAllProjects();
+  }, [1]);
+
+  const addProject = async () => {
+    await axios.post('http://localhost:3069/project/create', {
+      projname: name,
+      projown: user,
+      projlang: language,
+      projurl: githuburl
+    }, {
+      headers: {"Authorization": `Bearer ${token}`}
+    })
+    window.location.replace("http://localhost:3000/projects");
   };
 
   return (
@@ -64,7 +107,7 @@ function Projects() {
             name='projectUrl'
             value={githuburl}
             onChange={handleChange}/>
-          <button id='projectCreate' onClick={addProject}> Register Project </button>
+          <button className='projectCreate' onClick={addProject}> Register Project </button>
         </div>
         <div className="projectsContainer">
           <h2>Projects</h2>

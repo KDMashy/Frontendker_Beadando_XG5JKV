@@ -103,6 +103,22 @@
   background-color: black;
 }
 
+#loginLog {
+  display: inherit;
+}
+
+#loginNoLog {
+  display: none;
+}
+
+#profLog {
+  display: inherit;
+}
+
+#profNoLog {
+  display: none;
+}
+
 @media only screen and (max-width: 900px) {
   .navbar {
     background: linear-gradient(90deg, rgba(255,255,255,1) 50%, rgba(195,134,0,1) 100%);
@@ -137,10 +153,17 @@
 
   .navbar .leftside .hiddenLinks a {
     display: block;
-    padding: 5px 5px;
+    padding: 10px 10px;
   }
 
   .navbar .rightside a {
+    display: none;
+  }
+
+  .navbar .rightside #profLog,
+  .navbar .rightside #profNoLog,
+  .navbar .rightside #loginLog,
+  .navbar .rightside #loginNoLog {
     display: none;
   }
 
