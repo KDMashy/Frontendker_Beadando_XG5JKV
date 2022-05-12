@@ -9,10 +9,7 @@ function Home() {
         <div className='defaultContainer'>
           <h1>Welcome to my project ToDo site</h1>
           <p>
-            I made the site to create projects im working on right now, and list them.
-          </p>
-          <p>
-            Hope you find something that interests you.
+            I made the site to create projects im working on right now, and list them. Also for other people to use it.
           </p>
         </div>
       </div>

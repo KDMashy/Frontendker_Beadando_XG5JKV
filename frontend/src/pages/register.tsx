@@ -20,8 +20,7 @@ function Register() {
   function checkIfReg() {
     if(!emailRegex.test(email)){
       setMessage('User email is not correct format');
-    }
-    if(!passwRegex.test(password)){
+    }else if(!passwRegex.test(password)){
       setMessage(`User password is not correct, should contain: uppercase letter,  lowercase letter, special case letter, digits, and minimum length of 8`);
     }
     if(emailRegex.test(email) && passwRegex.test(password)){
@@ -45,6 +44,15 @@ function Register() {
       email: email,
       password: password
     });
+
+    const resp = await axios.post('http://localhost:3069/auth/login', {
+      username: username,
+      password: password
+    })
+
+    var token = JSON.stringify(resp.data).replace('}', '').split(':');
+    cookies.set('token', token[1], {path: '/'});
+    cookies.set('loggedin', "true", {path: '/'});
   }
 
   const login = async () => {
@@ -91,7 +99,7 @@ function Register() {
               <button className='projectCreate' onClick={async (e) => {
                 e.preventDefault();
                 await register();
-                window.location.replace("http://localhost:3000/register");
+                window.location.replace("http://localhost:3000/profile");
               }}>REGISTER</button>
             </div>
         </div>
