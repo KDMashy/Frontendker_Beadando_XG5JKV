@@ -98,8 +98,15 @@ function Register() {
               <p style={{color: 'red', fontSize: '125%', fontWeight: 'bold'}}>{message}</p>
               <button className='projectCreate' onClick={async (e) => {
                 e.preventDefault();
-                await register();
-                window.location.replace("http://localhost:3000/profile");
+                if(username.length > 0  &&
+                  email.length > 0 &&
+                  password.length > 0) {
+                    await register();
+                    window.location.replace("http://localhost:3000/profile");
+                } else {
+                  alert("Missing data for registration");
+                }
+                
               }}>REGISTER</button>
             </div>
         </div>
@@ -124,8 +131,13 @@ function Register() {
               <p style={{color: 'red', fontSize: '125%', fontWeight: 'bold'}}>{loginMessage}</p>
               <button className='projectCreate' onClick={async (e) => {
                 e.preventDefault();
-                await login();
-                window.location.replace("http://localhost:3000/profile");
+                if (loginName.length > 0 &&
+                  loginPassw.length > 0) {
+                    await login();
+                    window.location.replace("http://localhost:3000/profile");
+                  } else {
+                    alert("Missing data for login");
+                  }
               }}>LOGIN</button>
             </div>
         </div>
