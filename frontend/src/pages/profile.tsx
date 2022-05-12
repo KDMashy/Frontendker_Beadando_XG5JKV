@@ -32,7 +32,9 @@ function Profile() {
     window.location.replace("http://localhost:3000/");
   }
 
-  getProfile();
+  useEffect(() => {
+    getProfile();
+  }, [])
 
   return (
     <div className='site'>
