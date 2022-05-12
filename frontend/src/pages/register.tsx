@@ -35,14 +35,16 @@ function Register() {
       password: password
     });
 
-    const resp = await axios.post('http://localhost:3069/auth/login', {
-      username: username,
-      password: password
-    })
+    if(respReg){
+      const resp = await axios.post('http://localhost:3069/auth/login', {
+        username: username,
+        password: password
+      })
 
-    var token = JSON.stringify(resp.data).replace('}', '').split(':');
-    cookies.set('token', token[1], {path: '/'});
-    cookies.set('loggedin', "true", {path: '/'});
+      var token = JSON.stringify(resp.data).replace('}', '').split(':');
+      cookies.set('token', token[1], {path: '/'});
+      cookies.set('loggedin', "true", {path: '/'});
+    }
   }
 
   const login = async () => {
@@ -51,9 +53,11 @@ function Register() {
       password: loginPassw
     })
 
-    var token = JSON.stringify(resp.data).replace('}', '').split(':');
-    cookies.set('token', token[1], {path: '/'});
-    cookies.set('loggedin', "true", {path: '/'});
+    if(resp){
+      var token = JSON.stringify(resp.data).replace('}', '').split(':');
+      cookies.set('token', token[1], {path: '/'});
+      cookies.set('loggedin', "true", {path: '/'});
+    }
   }
 
   return (
