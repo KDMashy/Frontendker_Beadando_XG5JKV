@@ -39,12 +39,12 @@ function Projects() {
       listed.forEach(element => {
         if (element.startsWith('{') && element.endsWith('}')){
           getList.push(JSON.parse(`${element}`));
+        } else if (element.startsWith('{')){
+          getList.push(JSON.parse(`${element}}`));
+        } else if(element.endsWith('}')) {
+          getList.push(JSON.parse(`{${element}`));
         } else {
-          if(element.startsWith('{')){
-            getList.push(JSON.parse(`${element}}`));
-          } else {
-            getList.push(JSON.parse(`{${element}`));
-          }
+          getList.push(JSON.parse(`{${element}}`));
         }
       });
       var listedLength = listed.length;
