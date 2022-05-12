@@ -10,7 +10,6 @@ function Register() {
   const [message, setMessage] = useState<string>('');
   const [loginName, setLoginName] = useState<string>('');
   const [loginPassw, setLoginPassw] = useState<string>('');
-  const [loginMessage, setLoginMessage] = useState<string>('');
 
   const cookies = new Cookies();
 
@@ -25,15 +24,6 @@ function Register() {
     }
     if(emailRegex.test(email) && passwRegex.test(password)){
       setMessage('');
-    }
-  }
-
-  function checkIf() {
-    if(!passwRegex.test(loginPassw)){
-      setLoginMessage(`User password is not correct, should contain: uppercase letter,  lowercase letter, special case letter, digits, and minimum length of 8`);
-    }
-    if(passwRegex.test(loginPassw)){
-      setLoginMessage('');
     }
   }
 
@@ -125,10 +115,8 @@ function Register() {
                 placeholder='Password...'
                 onChange={(e) => {
                   setLoginPassw(e.target.value);
-                  checkIf();
                 }}
               />
-              <p style={{color: 'red', fontSize: '125%', fontWeight: 'bold'}}>{loginMessage}</p>
               <button className='projectCreate' onClick={async (e) => {
                 e.preventDefault();
                 if (loginName.length > 0 &&
