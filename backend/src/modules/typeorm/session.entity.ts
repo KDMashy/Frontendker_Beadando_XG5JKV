@@ -1,7 +1,7 @@
 import { ISession } from "connect-typeorm";
 import { Column, Entity, Index, PrimaryColumn } from "typeorm";
 
-@Entity('sessions')
+@Entity('session')
 export class SessionEntity implements ISession{
     @Index()
     @Column('bigint')

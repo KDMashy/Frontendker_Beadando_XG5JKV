@@ -42,7 +42,7 @@ function App() {
               <Route path='/register' element={<Register />} />,
               <Route path='/projects' element={<Notfound />} />
           ]}
-          <Route path='/notfound' element={<Notfound />} />
+          <Route path='*' element={<Notfound />} />
         </Routes>
         <Footer />
       </Router>

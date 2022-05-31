@@ -1,0 +1,36 @@
+version: "3.8"
+services:
+  # backend:
+  #   build: ./backend
+  #   container_name: projback_c
+  #   ports:
+  #     - '3069:3069'
+  #   volumes:
+  #     - ./backend:/back
+  #     - /back/node_modules
+  backend:
+    build:
+      dockerfile: Dockerfile
+      context: ./backend
+    depends_on:
+      - mysql
+    environment:
+      DATABASE_URL: 'mysql://root:mash@mysql:3306/foxprojects'
+    ports:
+      - "3069:3069"
+    
+  frontend:
+    build: ./frontend
+    container_name: projfront_c
+    ports:
+      - '3000:3000'
+    stdin_open: true
+    tty: true
+
+  mysql:
+    image: mysql
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_DATABASE: 'foxprojects'
+      MYSQL_ROOT_PASSWORD: 'mash'

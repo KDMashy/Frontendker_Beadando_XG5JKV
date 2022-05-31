@@ -1,6 +1,31 @@
 # Frontendker_Beadando_XG5JKV
  React js frontend
 
+# Docker indítás:
+
+docker-compose up
+
+localhost:3000 a port ahol elérhető az oldal
+
+# Normál indítás:
+
+SQL szerver kell, uncomment a db config részben, és comment ami a dockerhez van
+lehet jelszót kell átállítani, vagy valamit, de csak a db.configban
+
+npm install
+
+## NESTJS indítása:
+
+cd ./backend/
+
+npm run start:dev
+
+## REACTJS indítása:
+
+cd ./frontend/
+
+npm start
+
 # Installs (REACT JS)
 npm install axios
 
@@ -42,3 +67,7 @@ npm install --save @nestjs/jwt passport-jwt
 npm install --save-dev @types/passport-jwt
 
 npm i --save @nestjs/config
+
+npm install --save sequelize sequelize-typescript mysql2
+
+npm install --save-dev @types/sequelize

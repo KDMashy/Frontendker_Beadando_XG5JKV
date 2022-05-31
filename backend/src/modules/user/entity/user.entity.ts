@@ -1,5 +1,6 @@
 import { Project } from "src/modules/projects/entity/project.entity";
 import { BaseEntity, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+
 @Entity('users')
 export class User extends BaseEntity {
     @PrimaryGeneratedColumn()

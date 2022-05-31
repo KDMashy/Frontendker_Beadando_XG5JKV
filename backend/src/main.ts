@@ -8,7 +8,7 @@ import { SessionEntity } from './modules/typeorm/session.entity';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const sessionRepository = getRepository(SessionEntity);
+  const sessionRepository = await getRepository(SessionEntity);
   app.use(session({
     name: 'FOX_PROJECTS',
     secret: 'DefinietlyNotForFoxesAndProjectsSavedFromGitHub',
